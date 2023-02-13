@@ -24,38 +24,55 @@
 
 /* -------------------------------------------------------------------------- */
 
-let state = {
-  headline: "웹브라우저 환경에서 React 라이브러리 시작하기",
+export function createElement(type, props, ...children) {
+  const element = document.createElement(type);
+  for (const [property, value] of Object.entries(props)) {
+    element.setAttribute(property, value);
+  }
+
+  if (children.length > 0) {
+    children.forEach(child => {
+      element.append(child);
+    });
+  }
+
+  return element;
+}
+
+/* -------------------------------------------------------------------------- */
+
+export let state = {
+  headline: '웹브라우저 환경에서 React 라이브러리 시작하기',
   description:
-    "React 라이브러리 코드가 웹 브라우저 환경에서 어떻게 해석되고 작동되는 지 살펴봅니다.",
+    'React 라이브러리 코드가 웹 브라우저 환경에서 어떻게 해석되고 작동되는 지 살펴봅니다.',
   subjects: [
-    "React 및 ReactDOM API 활용",
-    "가상(Virtual) 노드 vs. 실제(Actual) DOM 노드",
+    'React 및 ReactDOM API 활용',
+    '가상(Virtual) 노드 vs. 실제(Actual) DOM 노드',
   ],
 };
 
-const rootElement = document.getElementById("root");
+const rootElement = document.getElementById('root');
 
 function reset() {
-  rootElement.innerHTML = "";
+  rootElement.innerHTML = '';
 }
 
-function render(state) {
+export function render(state) {
   reset();
 
-  const container = document.createElement("div");
-  container.classList.add("container", "container--md");
+  const container = document.createElement('div');
+  container.classList.add('container', 'container--md');
 
-  const headline = document.createElement("h1");
+  const headline = document.createElement('h1');
   headline.textContent = state.headline;
 
-  const description = document.createElement("p");
+  const description = document.createElement('p');
   description.textContent = state.description;
 
-  const subjectList = document.createElement("ul");
+  const subjectList = document.createElement('ul');
 
   state.subjects.forEach((subject) => {
-    const subjectItem = document.createElement("li");
+    const subjectItem = document.createElement('li');
     subjectItem.textContent = subject;
     subjectList.append(subjectItem);
   });
@@ -64,10 +81,16 @@ function render(state) {
   rootElement.append(container);
 }
 
+<<<<<<< HEAD
 render(state);
 
 function update(newState) {
   if (typeof newState.subjects === "string") {
+=======
+export function update(newState) {
+
+  if (typeof newState.subjects === 'string') {
+>>>>>>> 114aff2c8aab127fc5c5ec3ae8845f269da2c556
     let newSubject = newState.subjects;
     newState.subjects = [newSubject];
   }
@@ -77,11 +100,19 @@ function update(newState) {
     ...newState,
     subjects: [
       ...state.subjects,
+<<<<<<< HEAD
       ...(newState.subjects ? newState.subjects : []),
     ],
+=======
+      ...(newState.subjects ? newState.subjects : [])
+    ]
+>>>>>>> 114aff2c8aab127fc5c5ec3ae8845f269da2c556
   };
 
   render(state);
 }
 
+<<<<<<< HEAD
 globalThis.update = update;
+=======
+>>>>>>> 114aff2c8aab127fc5c5ec3ae8845f269da2c556
