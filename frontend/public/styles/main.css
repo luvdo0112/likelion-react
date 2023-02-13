@@ -3,10 +3,10 @@
 
 /* CSS 스타일 분기(조건 처리가 불가능했음) (요즘은)@support() */
 
-.no-js body {
+/* .no-js body {
   background-color: red;
-}
+} */
 
-.js body {
+/* .js body {
   background-color: blue;
-}
+} */
