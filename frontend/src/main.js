@@ -1,19 +1,5 @@
-class App extends React.Component {
-  render() {
-    return (
-      <div data-component="App">
-        <h1>React Application</h1>
-      </div>
-    );
-  }
+const App = () => console.log("callReact");
+
+function createElement(type, props, ...children) {
+  return { type, props: { ...props, children } };
 }
-
-/* -------------------------------------------------------------------------- */
-
-const reactDomRoot = ReactDOM.createRoot(document.getElementById('root'));
-
-reactDomRoot.render(
-  <React.StrictMode>
-    <App />
-  </React.StrictMode>
-);
