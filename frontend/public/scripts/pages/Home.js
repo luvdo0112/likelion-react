@@ -41,6 +41,11 @@ var Home = /*#__PURE__*/function (_React$Component) {
     return _this;
   }
   _createClass(Home, [{
+    key: "calcLAbCount",
+    value: function calcLAbCount() {
+      console.log(this.state.members.length);
+    }
+  }, {
     key: "render",
     value: function render() {
       var _this2 = this,

@@ -6,6 +6,10 @@ class Home extends React.Component {
 
   initialMembers = likeLionMembers;
 
+  calcLAbCount() {
+    console.log(this.state.members.length);
+  }
+
   handleFilterLab = (labNumber) => {
     // 나는 무슨 일을 해야 하는가?
     // 데이터 분석
