@@ -4,16 +4,22 @@ class App extends React.Component {
 
     this.state = {
       headline: "React Application",
-      isUpdateHeadline: false,
+      //isUpdateHeadline: false,
+      isToggle: false,
     };
 
-    this.handleChangeHeadline = this.handleChangeHeadline.bind(this);
+    //this.handleChangeHeadline = this.handleChangeHeadline.bind(this);
+    //클래스에서는 이렇게 기억할 수 있는 임의의 데이터를 관리할 수 있다.
+    //함수는 못하기때문에 React Hooks 써야한다. (useRef)
+    //메모이제이션 패턴
+    originalHeadline = this.state.headline;
   }
 
   handleChangeHeadline() {
     this.setState({
       headline: "NEW HEADLINE! 😃",
-      isUpdateHeadline: true,
+      //isUpdateHeadline: true,
+      inToggle: true,
     });
   }
 
@@ -25,7 +31,7 @@ class App extends React.Component {
         <button
           type="button"
           onClick={this.handleChangeHeadline}
-          disabled={isUpdateHeadline}
+          toggle={isToggle}
         >
           헤드라인 업데이트
         </button>
