@@ -12,11 +12,15 @@ function _getPrototypeOf(o) { _getPrototypeOf = Object.setPrototypeOf ? Object.g
 function _defineProperty(obj, key, value) { key = _toPropertyKey(key); if (key in obj) { Object.defineProperty(obj, key, { value: value, enumerable: true, configurable: true, writable: true }); } else { obj[key] = value; } return obj; }
 function _toPropertyKey(arg) { var key = _toPrimitive(arg, "string"); return _typeof(key) === "symbol" ? key : String(key); }
 function _toPrimitive(input, hint) { if (_typeof(input) !== "object" || input === null) return input; var prim = input[Symbol.toPrimitive]; if (prim !== undefined) { var res = prim.call(input, hint || "default"); if (_typeof(res) !== "object") return res; throw new TypeError("@@toPrimitive must return a primitive value."); } return (hint === "string" ? String : Number)(input); }
+<<<<<<< HEAD
 import { likeLionMembers } from "../data/likeLionMembers.js";
+=======
+>>>>>>> 26df3c655883603f50c1f4bb22ef27f440a338be
 var Home = /*#__PURE__*/function (_React$Component) {
   _inherits(Home, _React$Component);
   var _super = _createSuper(Home);
   function Home() {
+    var _this$props$likeLionM;
     var _this;
     _classCallCheck(this, Home);
     for (var _len = arguments.length, args = new Array(_len), _key = 0; _key < _len; _key++) {
@@ -24,13 +28,15 @@ var Home = /*#__PURE__*/function (_React$Component) {
     }
     _this = _super.call.apply(_super, [this].concat(args));
     _defineProperty(_assertThisInitialized(_this), "state", {
-      members: likeLionMembers
+      members: (_this$props$likeLionM = _this.props.likeLionMembers) !== null && _this$props$likeLionM !== void 0 ? _this$props$likeLionM : []
     });
     _defineProperty(_assertThisInitialized(_this), "handleFilterLab", function () {
-      console.log("filtering");
-    });
-    _defineProperty(_assertThisInitialized(_this), "handleFilterLab", function () {
-      console.log("filtering");
+      _this.setState({
+        members: _this.state.members.filter(function (member) {
+          // 로직
+          return false;
+        })
+      });
     });
     return _this;
   }
@@ -40,16 +46,17 @@ var Home = /*#__PURE__*/function (_React$Component) {
       return /*#__PURE__*/React.createElement(React.Fragment, null, /*#__PURE__*/React.createElement("h2", null, "\uBA4B\uC7C1\uC774 \uC0AC\uC790\uCC98\uB7FC \uD504\uB860\uD2B8\uC5D4\uB4DC \uC2A4\uCFE8 4\uAE30 \uBA64\uBC84"), /*#__PURE__*/React.createElement("button", {
         type: "button",
         style: {
-          marginBottom: 10
+          marginBottom: 20
         },
         onClick: this.handleFilterLab
-      }, "10\uC870 \uBAA8\uC5EC!"), /*#__PURE__*/React.createElement("ul", null, this.state.members.map(function (_ref) {
+      }, "LAB 10 \uC870 \uBAA8\uC5EC!"), /*#__PURE__*/React.createElement("ul", null, this.state.members.map(function (_ref) {
         var id = _ref.id,
+          lab = _ref.lab,
           name = _ref.name,
           gender = _ref.gender;
         return /*#__PURE__*/React.createElement("li", {
           key: id
-        }, /*#__PURE__*/React.createElement("p", null, /*#__PURE__*/React.createElement("span", null, gender.includes("여성") ? "🙆🏻‍♀️" : "🙆🏻‍♂️"), " ", name));
+        }, /*#__PURE__*/React.createElement("p", null, /*#__PURE__*/React.createElement("b", null, lab), " ", /*#__PURE__*/React.createElement("span", null, gender !== null && gender !== void 0 && gender.includes('여성') ? '🙆🏻‍♀️' : '🙆🏻‍♂️'), " ", name));
       })));
     }
   }]);
