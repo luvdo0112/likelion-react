@@ -1,10 +1,10 @@
-import LogIn from './pages/LogIn.js';
-import Browse from './pages/Browse.js';
-import Home from './pages/Home.js';
+import LogIn from "./pages/LogIn.js";
+import Browse from "./pages/Browse.js";
+import Home from "./pages/Home.js";
 
 class App extends React.Component {
   state = {
-    headline: 'React Application',
+    headline: "React Application",
     isPaid: true,
     isToggle: false,
     isLoading: !true,
@@ -12,7 +12,7 @@ class App extends React.Component {
   };
 
   originalHeadline = this.state.headline;
-  willUpdateHeadline = 'NEW HEADLINE! 😃';
+  willUpdateHeadline = "NEW HEADLINE! 😃";
 
   handleChangeHeadline = () => {
     if (this.state.isToggle) {
@@ -45,7 +45,7 @@ class App extends React.Component {
       <div className="App">
         <h1>{headline}</h1>
         <button type="button" onClick={this.handleChangeHeadline}>
-          {isToggle ? '오리지널 헤드라인으로 변경' : '뉴 헤드라인으로 변경'}
+          {isToggle ? "오리지널 헤드라인으로 변경" : "뉴 헤드라인으로 변경"}
         </button>
 
         <LogIn />

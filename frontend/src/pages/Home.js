@@ -1,34 +1,42 @@
-import { likeLionMember } from "../data/likeLionMembers.js";
+//import { likeLionMembers } from "../data/likeLionMembers.js";
 
 class Home extends React.Component {
   state = {
-    members: likeLionMember,
+    members: this.props.likeLionMembers ?? [
+      { id: 1, name: "a" },
+      { id: 2, name: "b" },
+      { id: 3, name: "c" },
+    ],
   };
 
   handleFilterLab = () => {
     console.log("filtering");
+    this.setState({
+      members: this.state.memebers.filter((member) => {
+        return member.name.includes("c") || member.name.includes("a");
+      }),
+    });
   };
+
   render() {
     return (
       <React.Fragment>
-        <h2>멋사 프론트엔드 스쿨 4기</h2>
+        <h2>멋쟁이 사자처럼 프론트엔드 스쿨 4기 멤버</h2>
         <button
           type="button"
-          style={{ "margin-bottom": 10 }}
+          style={{ marginBottom: 10 }}
           onClick={this.handleFilterLab}
         >
-          10조 모여!
+          A,C 너네들 좀 따라와라!
         </button>
         <ul>
-          {this.state.members.likeLionMember.map(
-            ({ id, name, price, image }) => (
-              <li key={id}>
-                <p>
-                  <span>{gender.inCludes("남자") ? "남" : "여"}</span> {name}
-                </p>
-              </li>
-            )
-          )}
+          {this.state.members.map(({ id, name, gender }) => (
+            <li key={id}>
+              <p>
+                <span>{gender?.includes("여성") ? "🙆🏻‍♀️" : "🙆🏻‍♂️"}</span> {name}
+              </p>
+            </li>
+          ))}
         </ul>
       </React.Fragment>
     );
