@@ -12,10 +12,6 @@ function _getPrototypeOf(o) { _getPrototypeOf = Object.setPrototypeOf ? Object.g
 function _defineProperty(obj, key, value) { key = _toPropertyKey(key); if (key in obj) { Object.defineProperty(obj, key, { value: value, enumerable: true, configurable: true, writable: true }); } else { obj[key] = value; } return obj; }
 function _toPropertyKey(arg) { var key = _toPrimitive(arg, "string"); return _typeof(key) === "symbol" ? key : String(key); }
 function _toPrimitive(input, hint) { if (_typeof(input) !== "object" || input === null) return input; var prim = input[Symbol.toPrimitive]; if (prim !== undefined) { var res = prim.call(input, hint || "default"); if (_typeof(res) !== "object") return res; throw new TypeError("@@toPrimitive must return a primitive value."); } return (hint === "string" ? String : Number)(input); }
-<<<<<<< HEAD
-import { likeLionMembers } from "../data/likeLionMembers.js";
-=======
->>>>>>> 26df3c655883603f50c1f4bb22ef27f440a338be
 var Home = /*#__PURE__*/function (_React$Component) {
   _inherits(Home, _React$Component);
   var _super = _createSuper(Home);
@@ -56,7 +52,7 @@ var Home = /*#__PURE__*/function (_React$Component) {
           gender = _ref.gender;
         return /*#__PURE__*/React.createElement("li", {
           key: id
-        }, /*#__PURE__*/React.createElement("p", null, /*#__PURE__*/React.createElement("b", null, lab), " ", /*#__PURE__*/React.createElement("span", null, gender !== null && gender !== void 0 && gender.includes('여성') ? '🙆🏻‍♀️' : '🙆🏻‍♂️'), " ", name));
+        }, /*#__PURE__*/React.createElement("p", null, /*#__PURE__*/React.createElement("b", null, lab), " ", /*#__PURE__*/React.createElement("span", null, gender !== null && gender !== void 0 && gender.includes("여성") ? "🙆🏻‍♀️" : "🙆🏻‍♂️"), " ", name));
       })));
     }
   }]);
