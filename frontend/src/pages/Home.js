@@ -1,13 +1,17 @@
+<<<<<<< HEAD
 class Home extends React.Component {
   state = {
     members: this.props.likeLionMembers ?? [],
+=======
+import { likeLionMembers } from '../data/likeLionMembers.js';
+
+class Home extends React.Component {
+  state = {
+    members: likeLionMembers
+>>>>>>> 1a1c749f0e54e81debacfe3e7ca7f0d72668ae62
   };
 
   handleFilterLab = (labNumber) => {
-    // 나는 무슨 일을 해야 하는가?
-    // 데이터 분석
-    // 어떻게 걸러낼 것인가?
-    // 걸러내는 프로그래밍 로직은?
     this.setState({
       members: this.state.members.filter((member) => member.lab === labNumber),
     });
@@ -24,20 +28,6 @@ class Home extends React.Component {
             onClick={() => this.handleFilterLab(4)}
           >
             LAB 4조 모여!
-          </button>
-          <button
-            type="button"
-            style={{ marginBottom: 20 }}
-            onClick={() => this.handleFilterLab(10)}
-          >
-            LAB 10조 모여!
-          </button>
-          <button
-            type="button"
-            style={{ marginBottom: 20 }}
-            onClick={() => this.handleFilterLab(2)}
-          >
-            LAB 2조 모여!
           </button>
         </div>
         <ul>
