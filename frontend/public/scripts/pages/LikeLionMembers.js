@@ -12,13 +12,13 @@ function _getPrototypeOf(o) { _getPrototypeOf = Object.setPrototypeOf ? Object.g
 function _defineProperty(obj, key, value) { key = _toPropertyKey(key); if (key in obj) { Object.defineProperty(obj, key, { value: value, enumerable: true, configurable: true, writable: true }); } else { obj[key] = value; } return obj; }
 function _toPropertyKey(arg) { var key = _toPrimitive(arg, "string"); return _typeof(key) === "symbol" ? key : String(key); }
 function _toPrimitive(input, hint) { if (_typeof(input) !== "object" || input === null) return input; var prim = input[Symbol.toPrimitive]; if (prim !== undefined) { var res = prim.call(input, hint || "default"); if (_typeof(res) !== "object") return res; throw new TypeError("@@toPrimitive must return a primitive value."); } return (hint === "string" ? String : Number)(input); }
-import { likeLionMembers } from '../data/likeLionMembers.js';
-var Home = /*#__PURE__*/function (_React$Component) {
-  _inherits(Home, _React$Component);
-  var _super = _createSuper(Home);
-  function Home() {
+import { likeLionMembers } from "../data/likeLionMembers.js";
+var LikeLionMembers = /*#__PURE__*/function (_React$Component) {
+  _inherits(LikeLionMembers, _React$Component);
+  var _super = _createSuper(LikeLionMembers);
+  function LikeLionMembers() {
     var _this;
-    _classCallCheck(this, Home);
+    _classCallCheck(this, LikeLionMembers);
     for (var _len = arguments.length, args = new Array(_len), _key = 0; _key < _len; _key++) {
       args[_key] = arguments[_key];
     }
@@ -37,7 +37,7 @@ var Home = /*#__PURE__*/function (_React$Component) {
     });
     return _this;
   }
-  _createClass(Home, [{
+  _createClass(LikeLionMembers, [{
     key: "calcLabCount",
     value: function calcLabCount() {
       // 데이터 분석
@@ -64,7 +64,7 @@ var Home = /*#__PURE__*/function (_React$Component) {
       return /*#__PURE__*/React.createElement(React.Fragment, null, /*#__PURE__*/React.createElement("h2", null, "\uBA4B\uC7C1\uC774 \uC0AC\uC790\uCC98\uB7FC \uD504\uB860\uD2B8\uC5D4\uB4DC \uC2A4\uCFE8 4\uAE30 \uBA64\uBC84"), /*#__PURE__*/React.createElement("div", {
         role: "group",
         style: {
-          display: 'flex',
+          display: "flex",
           gap: 8
         }
       }, Array(this.labCount).fill().map(function (_, index /* 0, 1, 2, ..., 10 */) {
@@ -82,11 +82,11 @@ var Home = /*#__PURE__*/function (_React$Component) {
           gender = _ref2.gender;
         return /*#__PURE__*/React.createElement("li", {
           key: id
-        }, /*#__PURE__*/React.createElement("p", null, /*#__PURE__*/React.createElement("b", null, lab), " ", /*#__PURE__*/React.createElement("span", null, gender !== null && gender !== void 0 && gender.includes('여성') ? '🙆🏻‍♀️' : '🙆🏻‍♂️'), " ", name));
+        }, /*#__PURE__*/React.createElement("p", null, /*#__PURE__*/React.createElement("b", null, lab), " ", /*#__PURE__*/React.createElement("span", null, gender !== null && gender !== void 0 && gender.includes("여성") ? "🙆🏻‍♀️" : "🙆🏻‍♂️"), " ", name));
       })));
     }
   }]);
-  return Home;
+  return LikeLionMembers;
 }(React.Component);
 function LabButton(props) {
   return /*#__PURE__*/React.createElement("button", {
@@ -97,4 +97,4 @@ function LabButton(props) {
     onClick: props.onFilter
   }, props.children);
 }
-export default Home;
+export default likeLionMembers;

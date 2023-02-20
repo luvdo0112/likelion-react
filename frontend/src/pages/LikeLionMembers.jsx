@@ -1,10 +1,10 @@
-import { likeLionMembers } from '../data/likeLionMembers.js';
+import { likeLionMembers } from "../data/likeLionMembers.js";
 
-class likeLionMembers extends React.Component {
+class LikeLionMembers extends React.Component {
   state = {
     members: likeLionMembers,
   };
-  
+
   initialMembers = likeLionMembers;
 
   // 한 번에 사용하고 싶어
@@ -12,7 +12,7 @@ class likeLionMembers extends React.Component {
   // #labCount = (() => {
   //   return 11;
   // })();
-  
+
   // 계산하는 메서드를 정의한 후 그 결과 값을
   // 인스턴스 멤버(변수)에 할당 - 가독성 좋음
   labCount = this.calcLabCount();
@@ -35,17 +35,18 @@ class likeLionMembers extends React.Component {
 
   handleFilterLab = (labNumber) => {
     this.setState({
-      members: this.initialMembers.filter(member => member.lab === labNumber)
+      members: this.initialMembers.filter((member) => member.lab === labNumber),
     });
-  }
+  };
 
   render() {
     return (
       <React.Fragment>
         <h2>멋쟁이 사자처럼 프론트엔드 스쿨 4기 멤버</h2>
-        <div role="group" style={{display: 'flex', gap: 8}}>
-          {
-            Array(this.labCount).fill().map((_, index/* 0, 1, 2, ..., 10 */) => {
+        <div role="group" style={{ display: "flex", gap: 8 }}>
+          {Array(this.labCount)
+            .fill()
+            .map((_, index /* 0, 1, 2, ..., 10 */) => {
               let labIndex = index + 1; // 1, 2, 3, 4, ..., 11
               return (
                 <LabButton
@@ -54,32 +55,27 @@ class likeLionMembers extends React.Component {
                 >
                   LAB {labIndex}
                 </LabButton>
-              )
-            })
-          }
+              );
+            })}
         </div>
         <ul>
-          {
-            this.state?.members.map(({ id, lab, name, gender }) => 
-              <li key={id}>
-                <p><b>{lab}</b> <span>{ gender?.includes('여성') ? '🙆🏻‍♀️' : '🙆🏻‍♂️' }</span> {name}</p>
-              </li>
-            )
-          }
+          {this.state?.members.map(({ id, lab, name, gender }) => (
+            <li key={id}>
+              <p>
+                <b>{lab}</b>{" "}
+                <span>{gender?.includes("여성") ? "🙆🏻‍♀️" : "🙆🏻‍♂️"}</span> {name}
+              </p>
+            </li>
+          ))}
         </ul>
       </React.Fragment>
     );
   }
-
 }
 
 function LabButton(props) {
   return (
-    <button
-      type="button"
-      style={{ marginBottom: 20 }}
-      onClick={props.onFilter}
-    >
+    <button type="button" style={{ marginBottom: 20 }} onClick={props.onFilter}>
       {props.children}
     </button>
   );
