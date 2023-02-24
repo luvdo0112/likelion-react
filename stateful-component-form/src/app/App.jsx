@@ -1,3 +1,4 @@
+/* eslint-disable no-unused-vars */
 import classes from './App.module.scss';
 
 /* Pages -------------------------------------------------------------------- */
